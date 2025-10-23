@@ -1,0 +1,12 @@
+/* src/index.css */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  /* The background gradient is all we need here */
+  background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+}

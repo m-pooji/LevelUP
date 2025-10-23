@@ -1,0 +1,36 @@
+/* src/components/TaskForm.css */
+.task-form {
+  display: flex;
+  margin-bottom: 30px;
+  gap: 10px;
+}
+
+.task-input {
+  flex-grow: 1;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  padding: 14px 18px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.task-input:focus {
+  border-color: #9c27b0;
+}
+
+.task-submit-btn {
+  background-color: #9c27b0;
+  color: #fff;
+  border: none;
+  padding: 0 25px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.task-submit-btn:hover {
+  background-color: #7b1fa2;
+}

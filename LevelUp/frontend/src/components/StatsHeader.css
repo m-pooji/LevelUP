@@ -1,0 +1,55 @@
+/* src/components/StatsHeader.css */
+.stats-header {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 25px 30px;
+  margin-bottom: 30px;
+}
+
+.stats-welcome {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.stats-info {
+  display: flex;
+  gap: 40px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #9c27b0; /* Our theme purple */
+}
+
+.stats-header-loading {
+  text-align: center;
+  padding: 40px;
+  font-size: 1.2rem;
+  color: #777;
+}
+
+/* src/components/StatsHeader.css */
+
+/* ... (all your existing styles) ... */
+
+/* NEW: Add this class */
+.stat-level-tooltip {
+  cursor: help; /* Changes the cursor to a '?' on hover */
+  /* This provides a visual cue to the user */
+}

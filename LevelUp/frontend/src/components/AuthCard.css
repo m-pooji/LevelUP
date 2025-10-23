@@ -1,0 +1,308 @@
+/* src/components/AuthCard.css */
+.auth-card-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 850px;
+  padding: 20px;
+}
+
+.auth-card-container {
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  min-height: 520px;
+}
+
+/* --- Form Containers --- */
+.form-container {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 50%; /* Each form takes half the width */
+  transition: all 0.6s ease-in-out;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 320px;
+  padding: 0 20px;
+  text-align: center;
+}
+
+/* src/components/AuthCard.css */
+
+/* ... add this new class ... */
+
+.error-message {
+  color: #d93025; /* A standard error-red color */
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-align: left;
+  width: 100%;
+  max-width: 320px;
+  padding: 0 5px;
+  margin-top: -5px; /* Pull it closer to the input above it */
+  margin-bottom: 5px; /* Add some space before the next input */
+}
+
+
+/* src/components/AuthCard.css */
+
+/* ... add this ... */
+.success-message {
+  color: #008000; /* Green */
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: center;
+  width: 100%;
+  max-width: 320px;
+  padding: 5px;
+  margin-top: 5px;
+}
+/* --- Overlay Container --- */
+.overlay-container {
+  position: absolute;
+  top: 0;
+  left: 0; /* DEFAULT: Overlay is on the LEFT */
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 100;
+  transition: transform 0.6s ease-in-out;
+}
+
+/* The .overlay is 200% wide and slides inside the container */
+.overlay {
+  background: linear-gradient(135deg, #7b1fa2, #9c27b0);
+  color: #fff;
+  position: relative;
+  left: -100%;
+  height: 100%;
+  width: 200%;
+  transform: translateX(0);
+  transition: transform 0.6s ease-in-out;
+}
+
+.overlay-panel {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 40px;
+  text-align: center;
+  transition: transform 0.6s ease-in-out;
+}
+
+/* "Welcome Back!" panel (hidden by default) */
+.overlay-left {
+  transform: translateX(-20%);
+}
+
+/* "Hello, Friend!" panel (visible by default) */
+.overlay-right {
+  right: 0;
+  transform: translateX(0);
+}
+
+/* --- DEFAULT STATE (Login Active) --- */
+.sign-in-container {
+  left: 50%; /* Sign-In form is on the RIGHT */
+  width: 50%;
+  z-index: 2; /* On top */
+}
+.sign-up-container {
+  left: 50%; /* Sign-Up form is also on the RIGHT (but hidden) */
+  width: 50%;
+  opacity: 0;
+  z-index: 1;
+}
+
+/* --- ANIMATION (When 'register-active' is added) --- */
+
+/* 1. Slide Overlay to the RIGHT */
+.auth-card-container.register-active .overlay-container {
+  transform: translateX(100%);
+}
+
+/* 2. Slide .overlay's content to the LEFT */
+.auth-card-container.register-active .overlay {
+  transform: translateX(50%);
+}
+
+/* 3. Animate Overlay Text */
+.auth-card-container.register-active .overlay-left {
+  transform: translateX(0); /* "Welcome" slides IN */
+}
+.auth-card-container.register-active .overlay-right {
+  transform: translateX(20%); /* "Hello" slides OUT */
+}
+
+/* 4. Slide Forms to the LEFT */
+.auth-card-container.register-active .sign-in-container {
+  transform: translateX(-100%);
+  opacity: 0;
+  z-index: 1;
+}
+.auth-card-container.register-active .sign-up-container {
+  transform: translateX(-100%);
+  opacity: 1;
+  z-index: 5; /* Bring to front */
+}
+
+/* --- Shared Styles (Inputs, Buttons, etc.) --- */
+.panel-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #444;
+}
+.overlay-panel .panel-title {
+  color: #fff;
+}
+.panel-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 20px 0 30px;
+}
+.auth-input {
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  outline: none;
+}
+.auth-input:focus {
+  border-bottom: 2px solid #9c27b0;
+  background-color: #fff;
+}
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+}
+.remember-me {
+  display: flex;
+  align-items: center;
+  color: #555;
+  cursor: pointer;
+}
+.remember-me input[type="checkbox"] {
+  margin-right: 8px;
+  accent-color: #9c27b0;
+}
+.forgot-password {
+  color: #777;
+  text-decoration: none;
+}
+.auth-button, .panel-button {
+  background-color: #9c27b0;
+  color: #fff;
+  border: none;
+  padding: 12px 45px;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  letter-spacing: 0.5px;
+  margin-top: 10px;
+}
+.auth-button:hover, .panel-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+.ghost-button {
+  background-color: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+}
+.ghost-button:hover {
+  background-color: #fff;
+  color: #9c27b0;
+}
+
+/* --- Responsive Styling --- */
+@media (max-width: 768px) {
+  .auth-card-container {
+    flex-direction: column; min-height: auto; width: 95vw; max-width: 400px; position: static;
+  }
+  .form-container, .overlay-container {
+    position: static; width: 100%; min-height: 250px; transition: none; transform: none !important;
+  }
+  .overlay-container { height: 100%; min-height: 200px; }
+  .overlay { position: static; width: 100%; height: 100%; left: 0; transform: none !important; }
+  .overlay-panel { position: static; width: 100%; transform: none !important; }
+  
+  /* Mobile default: show sign-in and overlay-right ("Hello") */
+  .sign-up-container, .overlay-left { display: none; }
+  .auth-card-container.register-active .sign-up-container,
+  .auth-card-container.register-active .overlay-left { display: flex; }
+  .auth-card-container.register-active .sign-in-container,
+  .auth-card-container.register-active .overlay-right { display: none; }
+  
+  /* Mobile stacking order */
+  .overlay-container {
+    border-top-left-radius: 20px; border-top-right-radius: 20px; border-bottom-left-radius: 0; border-bottom-right-radius: 0;
+  }
+  .sign-in-container {
+    border-top-left-radius: 0; border-top-right-radius: 0; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;
+  }
+  .auth-card-container.register-active .sign-up-container {
+    border-top-left-radius: 20px; border-top-right-radius: 20px; border-bottom-left-radius: 0; border-bottom-right-radius: 0;
+  }
+  .auth-card-container.register-active .overlay-container { order: 2; }
+}
+
+/* src/components/AuthCard.css */
+
+/* ... all your other styles ... */
+
+@media (max-width: 768px) {
+  .auth-card-container {
+    flex-direction: column; min-height: auto; width: 95vw; max-width: 400px; position: static;
+  }
+  .form-container, .overlay-container {
+    position: static; width: 100%; min-height: 250px; transition: none; transform: none !important;
+  }
+  .overlay-container { height: 100%; min-height: 200px; }
+  .overlay { position: static; width: 100%; height: 100%; left: 0; transform: none !important; }
+  .overlay-panel { position: static; width: 100%; transform: none !important; }
+
+  .sign-up-container, .overlay-left { display: none; }
+  .auth-card-container.register-active .sign-up-container,
+  .auth-card-container.register-active .overlay-left { display: flex; }
+  .auth-card-container.register-active .sign-in-container,
+  .auth-card-container.register-active .overlay-right { display: none; }
+
+  .overlay-container {
+    border-top-left-radius: 20px; border-top-right-radius: 20px; border-bottom-left-radius: 0; border-bottom-right-radius: 0;
+  }
+  .sign-in-container {
+    border-top-left-radius: 0; border-top-right-radius: 0; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;
+  }
+  .auth-card-container.register-active .sign-up-container {
+    border-top-left-radius: 20px; border-top-right-radius: 20px; border-bottom-left-radius: 0; border-bottom-right-radius: 0;
+  }
+  .auth-card-container.register-active .overlay-container { order: 2; }
+}

@@ -1,0 +1,7 @@
+/* src/pages/DashboardPage.css */
+.dashboard-container {
+  width: 100%;
+  max-width: 900px; /* Set a max width for content */
+  margin: 0 auto; /* Center the dashboard */
+  padding: 40px 20px;
+}

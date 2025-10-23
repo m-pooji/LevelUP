@@ -1,0 +1,98 @@
+/* src/App.css */
+/* src/App.css */
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* <--- This is correct, it makes our app fill the screen */
+}
+/* ... rest of your App.css ... */
+
+.main-content {
+  flex-grow: 1; /* This makes the content fill the remaining space */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  gap: 60px; /* Space between description and card */
+  max-width: 1400px;
+  margin: 0 auto; /* Center the whole content block */
+  width: 100%;
+}
+
+.homepage-description {
+  flex: 1; /* Takes up available space */
+  max-width: 550px;
+  text-align: left;
+  color: #333;
+  padding-right: 20px; /* A little space from the card */
+}
+
+.description-title {
+  font-size: 3.5rem; /* Big, bold title */
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #4a148c; /* Dark, strong purple */
+  line-height: 1.2;
+}
+
+.description-text {
+  font-size: 1.3rem;
+  line-height: 1.8;
+  color: #444; /* Slightly softer text color */
+}
+
+/* --- Responsive Styling --- */
+/* This is for tablets and smaller desktops */
+@media (max-width: 1024px) {
+  .main-content {
+    flex-direction: column; /* Stack them vertically */
+    gap: 40px;
+    padding: 30px 20px;
+  }
+
+  .homepage-description {
+    text-align: center; /* Center text when stacked */
+    max-width: 90%;
+    padding-right: 0;
+  }
+
+  .description-title {
+    font-size: 2.8rem;
+  }
+
+  .description-text {
+    font-size: 1.1rem;
+  }
+}
+
+/* This is for mobile phones */
+@media (max-width: 768px) {
+  /* On mobile, we want the auth card panels to stack */
+  .auth-card-container {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .auth-card-panel-left,
+  .auth-card-panel-right {
+    /* Reset the specific border-radius */
+    border-radius: 0;
+    width: 100%;
+  }
+
+  .auth-card-panel-left {
+    /* Give it the top rounded corners */
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+
+  .auth-card-panel-right {
+    /* Give it the bottom rounded corners */
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+
+  .description-title {
+    font-size: 2.2rem;
+  }
+}
